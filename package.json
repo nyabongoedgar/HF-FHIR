@@ -4,7 +4,9 @@
   "description": "Fetches patient data from organization EMRs",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "dev": "nodemon index.js",
+    "start": "npm run build && node dist/index.js",
+    "build": "npm install && rimraf dist && babel src --out-dir dist  --copy-files"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
   "homepage": "https://github.com/nyabongoedgar/HF-FHIR#readme",
   "type": "module",
   "dependencies": {
+    "FileReader": "^0.10.2",
     "axios": "^0.26.1",
     "axios-oauth-client": "^1.4.4",
     "axios-token-interceptor": "^0.2.0",
@@ -30,8 +33,14 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "FileReader": "^0.10.2",
     "moment": "^2.29.4",
-    "nodemon": "^2.0.15"
+    "rimraf": "^5.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.19.4",
+    "nodemon": "^2.0.22"
   }
 }
