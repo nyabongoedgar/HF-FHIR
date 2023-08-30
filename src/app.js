@@ -1,6 +1,8 @@
 import express from "express";
-import error from '../middleware/error/error';
+import error from './middleware/error/error';
 import routes from './modules';
+
+require('dotenv').config();
 
 const app = express();
 
@@ -28,12 +30,14 @@ app.get('/', (req, res) => {
 
 app.use(error.converter);
 
-// catch 404 and forward to error handler
+//catch 404 and forward to error handler
 app.use(error.notFound);
 
-// error handler, send stacktrace only during development
+//error handler, send stacktrace only during development
 app.use(error.handler);
 
 
 export default app;
+
+
 

@@ -1,6 +1,6 @@
 import {ATHENA_CONNECT, MELD_CONNECT, ORGANIZATIONS} from "./constants"
 import PatientController from "./patientController";
-const express = express()
+import express from "express"
 
 const Router = express.Router()
 
